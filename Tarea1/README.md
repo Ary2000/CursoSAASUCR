@@ -49,15 +49,13 @@ sequenceDiagram
     participant CatalogoJuegos as Catálogo de juegos
     participant BusEventos as Bus de Eventos
 
-    Torneo->>BusEventos: CrearTorneo, ModificarTorneo
+    Torneo->>BusEventos: TorneoCreado, TorneoEliminado
     BusEventos->>Evento: (Subscripción de torneos presentes en el torneo)
     Torneo->>CatalogoJuegos: ListadoJuegos
-    IdentidadUsuarios->>Evento: API: RegistrarParticipante
-    IdentidadUsuarios->>Evento: API: EliminarParticipante
-    Evento->>BusEventos: ActualizarParticipantes
+    IdentidadUsuarios->>Evento: API: ParticipanteRegistrado, ParticipanteEliminado
+    IdentidadUsuarios->>Torneo: API: CompetidorRegistrado, CompetidorEliminado
+    Torneo->>BusEventos: ParticipantesActualizados
     BusEventos->>Evento: (Subscripción de cantidad de participantes)
-    IdentidadUsuarios->>Torneo: API: RegistrarCompetidor
-    IdentidadUsuarios->>Torneo: API: EliminarCompetidor
 ```
 
 ## Eventos por contexto

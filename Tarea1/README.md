@@ -62,9 +62,9 @@ sequenceDiagram
 
 ## Eventos por contexto
 
-| Contexto                   | Emite                                            | Consume                                                                                  |
-| -------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| **Catálogo juegos**        | JuegoCreado                                      | JuegoEliminado                                                                           |
-| **Evento**                 | EventoCreado, EventoModificado, EventoModificado | TorneoCreado, TorneoEliminado                                                            |
-| **Torneo**                 | TorneoCreado, TorneoModificado, TorneoEliminado  | -                                                                                        |
-| ** Identidad y Usuarios ** | -                                                | ParticipanteRegistrado, ParticipanteEliminado, CompetidorRegistrado, CompetidorEliminado |
+| Contexto                 | Emite                                            | Consume                                                                                  |
+| ------------------------ | ------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Catálogo juegos**      | JuegoCreado, JuegoEliminado                      | -                                                                                        |
+| **Evento**               | EventoCreado, EventoModificado, EventoModificado | TorneoCreado, TorneoEliminado                                                            |
+| **Torneo**               | TorneoCreado, TorneoModificado, TorneoEliminado  | -                                                                                        |
+| **Identidad y Usuarios** | -                                                | ParticipanteRegistrado, ParticipanteEliminado, CompetidorRegistrado, CompetidorEliminado |

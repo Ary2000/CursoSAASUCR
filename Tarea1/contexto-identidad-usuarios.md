@@ -2,12 +2,12 @@
 
 Este contexto permite a los usuarios poder registrarse en cuantos eventos y torneos quiera.
 
-# Responsabilidades
+## Responsabilidades
 
 - Gestionar la participación de los usuarios a eventos y torneos
 - Enviar notificaciones al usuario en caso de que el evento o torneo requiera informarle a este un dato importante
 
-# Modelo del dominio
+## Modelo del dominio
 
 En este contexto, el usuario se utilizará para poder enviar solicitudes para asegurar el registro del usuario en eventos y en los torneos que desea participar en.
 
@@ -19,6 +19,21 @@ Usuario {
 }
 ```
 
-# Lo que el contexto no sabe
+## Lo que el contexto no sabe
 
 - Datos del usuario dependientes de un evento o un torneo
+
+## Eventos
+
+### Eventos emitidos
+
+Este contexto no es un producto, solo consume funcionalidades de otros contextos.
+
+### Eventos consumidos
+
+| Evento                 | Descripción | Consumidores típicos |
+| ---------------------- | ----------- | -------------------- |
+| ParticipanteRegistrado | -           | Evento               |
+| ParticipanteEliminado  | -           | Evento               |
+| CompetidorRegistrado   | -           | Torneo               |
+| CompetidorEliminado    | -           | Torneo               |

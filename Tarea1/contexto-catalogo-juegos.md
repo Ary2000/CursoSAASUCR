@@ -22,3 +22,15 @@ Juego {
 
 - Eventos que corren un torneo de este juego
 - Torneos de este juego
+
+## Eventos
+
+### Eventos emitidos
+
+| Evento        | Descripción | Consumidores típicos |
+| ------------- | ----------- | -------------------- |
+| ListadoJuegos | -           | Torneo               |
+
+### Eventos consumidos
+
+El catálogo de juegos no pide ninguna información a ningún contexto, esta solo provee a los contextos que necesiten, los juegos que se encuentrar registrados en el sistema

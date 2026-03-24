@@ -32,3 +32,21 @@ Torneo {
 
 - Cantidad de participantes de todos los torneos en el evento
 - Características del competidor además de su ID y su nombre
+
+## Eventos
+
+### Eventos emitidos
+
+| Evento                    | Descripción | Consumidores típicos |
+| ------------------------- | ----------- | -------------------- |
+| TorneoCreado              | -           | Evento               |
+| TorneoEliminado           | -           | Evento               |
+| CompetidorRegistrado      | -           | Identidad y Usuario  |
+| CompetidorEliminado       | -           | Identidad y Usuario  |
+| ParticipantesActualizados | -           | Evento               |
+
+### Eventos consumidos
+
+| Evento        | Descripción | Consumidores típicos |
+| ------------- | ----------- | -------------------- |
+| ListadoJuegos | -           | Catálogo de juegos   |

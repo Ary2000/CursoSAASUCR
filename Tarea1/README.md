@@ -5,15 +5,16 @@
 - [Contextos y documentación](#contextos-y-documentación)
 - [Diagrama: interacción entre contextos](#diagrama-interacción-entre-contextos)
 - [Flujo de eventos (secuencia)](#flujo-de-eventos-secuencia)
+- [Eventos por contexto](#eventos-por-contexto)
 
 ## Contextos y documentación
 
-| Contexto             | Responsabilidad                                    | Documentación |
-| -------------------- | -------------------------------------------------- | ------------- |
-| Eventos              | Gestionar el evento que se hará                    | futuro        |
-| Torneos              | Gestionar los torneos que se realicen en un evento | futuro        |
-| Catálogo de juegos   | Catálogo de juegos que se le puede hacer un evento | futuro        |
-| Identidad y Usuarios | Usuario interesado a ingresar a un evento          | Futuro        |
+| Contexto             | Responsabilidad                                    | Documentación                                                    |
+| -------------------- | -------------------------------------------------- | ---------------------------------------------------------------- |
+| Eventos              | Gestionar el evento que se hará                    | [contexto-manejo-de-eventos.md](contexto-manejo-de-eventos.md)   |
+| Torneos              | Gestionar los torneos que se realicen en un evento | [contexto-manejo-de-torneo.md](contexto-manejo-de-torneo.md)     |
+| Catálogo de juegos   | Catálogo de juegos que se le puede hacer un evento | [contexto-catalogo-juegos.md](contexto-catalogo-juegos.md)       |
+| Identidad y Usuarios | Usuario interesado a ingresar a un evento          | [contexto-identidad-usuarios.md](contexto-identidad-usuarios.md) |
 
 ## Diagrama: Interacción entre contextos
 

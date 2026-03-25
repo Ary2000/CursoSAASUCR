@@ -4,13 +4,15 @@ El evento es el contexto responsable de gestionar la participación de personas 
 
 ## Responsabilidades
 
-- Gestionar participación al mismo evento
+- Gestionar participación del evento
 - Gestionar torneos que estarán presentes durante el evento
-- Mantener datos descriptivos del evento como el nombre, fecha y hora del inicio y del fun de este y costo de inscripción al evento
+- Mantener los datos descriptivos del evento, tales como su nombre, fecha y hora de inicio y fin, y el costo de inscripción.
 
 ## Modelo del dominio
 
 En este contexto, un evento será la actividad que se realizará durante un cierto periodo de tiempo. Puede ser de un día a varios.
+
+Se tendrán datos descriptivos para poder identificarlo y ayudar en búsquedas filtradas.
 
 ```
 Evento {
@@ -37,15 +39,15 @@ Evento {
 
 ### Eventos emitidos
 
-| Evento                 | Descripción | Consumidores típicos |
-| ---------------------- | ----------- | -------------------- |
-| ParticipanteRegistrado | -           | Identidad y Usuarios |
-| ParticipanteEliminado  | -           | Identidad y Usuarios |
+| Evento                 | Descripción                          | Consumidores típicos |
+| ---------------------- | ------------------------------------ | -------------------- |
+| ParticipanteRegistrado | Registra un participante a un evento | Identidad y Usuarios |
+| ParticipanteEliminado  | Elimina un participante de un evento | Identidad y Usuarios |
 
 ### Eventos consumidos
 
-| Evento                  | Descripción | Consumidores típicos |
-| ----------------------- | ----------- | -------------------- |
-| TorneoCreado            | -           | Torneo               |
-| TorneoEliminado         | -           | Torneo               |
-| ActualizarParticipantes | -           | Torneo               |
+| Evento                  | Descripción                                                    | Consumidores típicos |
+| ----------------------- | -------------------------------------------------------------- | -------------------- |
+| TorneoCreado            | Crea un torneo dentro de un evento                             | Torneo               |
+| TorneoEliminado         | Elimina un torneo dentro de un evento                          | Torneo               |
+| ActualizarParticipantes | Recibir cuantas personas están registradas dentro de un evento | Torneo               |

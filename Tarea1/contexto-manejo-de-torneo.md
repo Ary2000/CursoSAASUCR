@@ -1,11 +1,11 @@
 # Contexto de torneo
 
-El evento es el contexto responsable de gestionar los competidores, la ejecución del torneo como el seeding y los sets y proveer datos descriptivos el juego que se jugará, la hora y fecha que comenzará y terminará el torneo y el premio para los ganadores
+El evento es el contexto responsable de gestionar los competidores, la ejecución del torneo, incluyendo, seeding y los sets. Asimismo, provee datos descriptivos como el juego, la fecha y hora de inicio y de fin del torneo, y el premio para los ganadores
 
 ## Lenguaje obliquo
 
-Seeding: Predicción de los lugares que tendran los participantes en el torneo. Este ayudará la toma de decisión de quien va a jugar en contra de quien
-Set: Partida entre dos jugadores. Este puede ser mejor de 3, mejor de 5 u otra cantidad definida por el organizador del torneo.
+Seeding: predicción de las posiciones que ocuparán los participantes en el torneo, la cual sirve de base para determinar los enfrentamientos entre competidores.
+Set: Partida entre dos jugadores. Puede desarrollarse en formato de mejor de 3, mejor de 5, u otra modalidad definida por el organizador del torneo.
 
 ## Responsabilidades
 
@@ -37,16 +37,16 @@ Torneo {
 
 ### Eventos emitidos
 
-| Evento                    | Descripción | Consumidores típicos |
-| ------------------------- | ----------- | -------------------- |
-| TorneoCreado              | -           | Evento               |
-| TorneoEliminado           | -           | Evento               |
-| CompetidorRegistrado      | -           | Identidad y Usuario  |
-| CompetidorEliminado       | -           | Identidad y Usuario  |
-| ParticipantesActualizados | -           | Evento               |
+| Evento                    | Descripción                                                    | Consumidores típicos |
+| ------------------------- | -------------------------------------------------------------- | -------------------- |
+| TorneoCreado              | Se creó un torneo asociado a un evento                         | Evento               |
+| TorneoEliminado           | Se eliminó un torneo asocsiado a un evento                     | Evento               |
+| CompetidorRegistrado      | Se registró a un usuario en un torneo                          | Identidad y Usuario  |
+| CompetidorEliminado       | Se eliminó a un usuario dentro de un torneo                    | Identidad y Usuario  |
+| ParticipantesActualizados | Recibir cuantas personas están registradas dentro de un evento | Evento               |
 
 ### Eventos consumidos
 
-| Evento        | Descripción | Consumidores típicos |
-| ------------- | ----------- | -------------------- |
-| ListadoJuegos | -           | Catálogo de juegos   |
+| Evento        | Descripción                               | Consumidores típicos |
+| ------------- | ----------------------------------------- | -------------------- |
+| ListadoJuegos | Listado de juegos presentes en el sistema | Catálogo de juegos   |

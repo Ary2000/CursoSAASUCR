@@ -1,0 +1,41 @@
+services:
+  catalogojuegos:
+    build: CatalogoJuegos/.
+    container_name: catalogo-juegos
+    ports:
+      - "9090:8000"
+    restart: always
+    hostname: catalogo-juegos
+
+  eventos:
+    build: Eventos/.
+    container_name: eventos
+    ports:
+      - "8000:8000"
+    restart: always
+    hostname: eventos
+    environment:
+      "IDENTIDAD_SERVICE": http://identidad:8000
+      "TORNEOS_SERVICE": http://torneos:8000
+
+  torneos:
+    build: Torneos/.
+    container_name: torneos
+    ports:
+      - "8004:8000"
+    restart: always
+    hostname: torneos
+    environment:
+      "CATALOGO_JUEGOS_SERVICE": http://catalogo-juegos:8000
+      "IDENTIDAD_SERVICE": http://identidad:8000
+
+  identidad:
+    build: IdenttidadUsuarios/.
+    container_name: identidad
+    ports:
+      - "8003:8000"
+    restart: always
+    hostname: identidad
+    environment:
+      "EVENTOS_URL": http://eventos:8000
+      "TORNEOS_URL": http://torneos:8000

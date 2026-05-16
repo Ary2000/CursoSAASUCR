@@ -1,0 +1,67 @@
+services:
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672" # RabbitMQ messaging
+      - "15672:15672" # RabbitMQ management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    hostname: rabbitmq
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  catalogojuegos:
+    build: CatalogoJuegos/.
+    container_name: catalogo-juegos
+    ports:
+      - "9090:8000"
+    restart: always
+    hostname: catalogo-juegos
+
+  eventos:
+    build: Eventos/.
+    container_name: eventos
+    ports:
+      - "8000:8000"
+    restart: always
+    hostname: eventos
+    environment:
+      "IDENTIDAD_SERVICE": http://identidad:8000
+      "TORNEOS_SERVICE": http://torneos:8000
+      "RABBITMQ_HOST": "rabbitmq"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  torneos:
+    build: Torneos/.
+    container_name: torneos
+    ports:
+      - "8004:8000"
+    restart: always
+    hostname: torneos
+    environment:
+      "CATALOGO_JUEGOS_SERVICE": http://catalogo-juegos:8000
+      "IDENTIDAD_SERVICE": http://identidad:8000
+      "RABBITMQ_HOST": "rabbitmq"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  identidad:
+    build: IdenttidadUsuarios/.
+    container_name: identidad
+    ports:
+      - "8003:8000"
+    restart: always
+    hostname: identidad
+    environment:
+      "EVENTOS_URL": http://eventos:8000
+      "TORNEOS_URL": http://torneos:8000
